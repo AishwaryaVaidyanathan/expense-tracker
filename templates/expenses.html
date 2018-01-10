@@ -1,0 +1,35 @@
+<form ng-submit="addItem()" ng-controller="expensesCtrl">
+    <table class="table well">
+        <thead>
+            <th>Reason</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Balance</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in items">
+                <td>{{item.name}}</td>
+                <td>{{item.amount}}</td>
+                <td>{{item.date | date : format : timezone}}</td>
+                <td>{{item.balance}}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <td>
+                <input type="text" ng-model="newItem.name" required>
+            </td>
+            <td>
+                <input type="number" ng-model="newItem.amount" required>
+            </td>
+            <td>
+                <input type="date" ng-model="newItem.date" required>
+            </td>
+            <td>
+                <input type="submit" value="Add" class="btn btn-default">
+            </td>
+        </tfoot>
+    </table>
+    <h4>
+        Balance: {{items[items.length-1].balance || '0' }}
+    </h4>
+</form>

@@ -2,8 +2,12 @@ var app = angular.module('expenseTracker', ['ui.router']);
 
 
 app.config(function ($stateProvider, $locationProvider) {
-
     $locationProvider.html5Mode(false);
+});
+
+
+app.config(function ($stateProvider, $locationProvider) {
+
 
     var loginState = {
         name: 'login',

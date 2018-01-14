@@ -2,7 +2,7 @@ var app = angular.module('expenseTracker', ['ui.router']);
 
 
 app.config(function ($locationProvider) {
-    $locationProvider.html5Mode(false);
+    $locationProvider.html5Mode(true);
 });
 
 app.config(['$httpProvider', function ($httpProvider) {
@@ -22,7 +22,7 @@ app.config(['$httpProvider', function ($httpProvider) {
     });
   }]);
 
-app.config(function ($stateProvider) {
+app.config(function ($stateProvider,$urlRouterProvider) {
 
     $stateProvider
         .state({
@@ -40,5 +40,7 @@ app.config(function ($stateProvider) {
             url: '/expenses',
             templateUrl: 'views/expenses/expenses.html'
         })
+
+        $urlRouterProvider.otherwise('/');
 
 });

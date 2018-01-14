@@ -1,44 +1,44 @@
 var app = angular.module('expenseTracker', ['ui.router']);
 
 
-app.config(function ($stateProvider, $locationProvider) {
+app.config(function ($locationProvider) {
     $locationProvider.html5Mode(false);
 });
 
+app.config(['$httpProvider', function ($httpProvider) {
+    // Intercept POST requests, convert to standard form encoding
+    $httpProvider.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
+    $httpProvider.defaults.transformRequest.unshift(function (data, headersGetter) {
+      var key, result = [];
+  
+      if (typeof data === "string")
+        return data;
+  
+      for (key in data) {
+        if (data.hasOwnProperty(key))
+          result.push(encodeURIComponent(key) + "=" + encodeURIComponent(data[key]));
+      }
+      return result.join("&");
+    });
+  }]);
 
-app.config(function ($stateProvider, $locationProvider) {
+app.config(function ($stateProvider) {
 
-
-    var loginState = {
-        name: 'login',
-        url: '/',
-        templateUrl: 'templates/login.html'
-    }
-    $stateProvider.state(loginState);
-
-    var expensesState = {
-        name: 'expenses',
-        url: '/expenses',
-        templateUrl: 'templates/expenses.html'
-    }
-
-    $stateProvider.state(expensesState);
-
+    $stateProvider
+        .state({
+            name: 'login',
+            url: '/',
+            templateUrl: 'views/login/login.html'
+        })
+        .state({
+            name: 'signup',
+            url: '/signup',
+            templateUrl: 'views/signup/signup.html'
+        })
+        .state({
+            name: 'expenses',
+            url: '/expenses',
+            templateUrl: 'views/expenses/expenses.html'
+        })
 
 });
-
-app.controller('expensesCtrl', function($scope) {
-    $scope.items = []
-    $scope.newItem = {date:new Date}
-    var balance=0;
-    $scope.addItem=function() {
-        balance += $scope.newItem.amount;
-        $scope.newItem.balance = balance;
-        $scope.items.push($scope.newItem)        
-        $scope.newItem = {date:new Date}
-    }
-
- 
-});
-
-

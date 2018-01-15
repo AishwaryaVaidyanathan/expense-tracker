@@ -22,30 +22,3 @@ app.config(['$httpProvider', function ($httpProvider) {
     });
   }]);
 
-app.config(function ($stateProvider,$urlRouterProvider) {
-
-    $stateProvider
-        .state({
-            name: 'login',
-            url: '/',
-            templateUrl: 'views/login/login.html'
-        })
-        .state({
-            name: 'signup',
-            url: '/signup',
-            templateUrl: 'views/signup/signup.html'
-        })
-        .state({
-            name: 'expenses',
-            url: '/expenses',
-            templateUrl: 'views/expenses/expenses.html'
-        })
-        .state({
-            name: 'budget',
-            url: '/budget',
-            templateUrl: 'views/budget/budget.html'
-        })
-
-        $urlRouterProvider.otherwise('/');
-
-});

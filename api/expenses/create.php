@@ -6,11 +6,13 @@ values(
     '$_REQUEST[item]',
     $_REQUEST[amount],
     '$_REQUEST[fdate]',
-    $_SESSION[user_id]);
+    $_SESSION[user_id])
+    RETURNING ex_id
+
 ";
-if(runSQL($sql))
+if($result=runSQL($sql))
 {
-    statusOK();
+    print_results($result,true);
 }
 else{
     BadStatus("Record not inserted");

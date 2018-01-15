@@ -22,7 +22,7 @@ app.controller('expensesCtrl', function($scope, $http) {
         $http
         .post('api/expenses/delete.php',item)
         .then(function(){
-            $scope.items.splice(0,$index);
+            $scope.items.splice($index,1);
             totalSpent()
         })
     }
@@ -34,7 +34,8 @@ app.controller('expensesCtrl', function($scope, $http) {
  
         $http
         .post('api/expenses/create.php',$scope.newItem)
-        .then(function(){
+        .then(function(res){
+            $scope.newItem.ex_id=res.data.ex_id;
             $scope.items.push($scope.newItem)        
             $scope.newItem = {ex_date:new Date}    
             totalSpent()

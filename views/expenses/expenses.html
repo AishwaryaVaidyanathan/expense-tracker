@@ -1,4 +1,8 @@
+
 <form ng-submit="addItem()" ng-controller="expensesCtrl">
+        <div class="alert alert-danger" role="alert" ng-if="spent > budget" >
+        Amount spent cannot be more than your budget!!
+        </div>
     <table class="table well">
         <thead>
             <th>Reason</th>
@@ -29,18 +33,19 @@
             <td>
                 <input type="submit" value="Add" class="btn btn-default"><br><br>
 
-             <p>
-                Total Spent: {{spent }}
-             </p>   
-             <p>
-                Balance: {{budget- spent }}
-             </p>
-             <p>
-                Budget: {{budget}}
-                 </p>
+            
     
             </td>
         </tfoot>
     </table>
+    <p>
+            Total Spent: {{spent }}
+         </p>   
+         <p>
+            Balance: {{budget- spent }}
+         </p>
+         <p>
+            Budget: {{budget}}
+             </p>
        
 </form>

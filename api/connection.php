@@ -31,13 +31,12 @@ $host        = "host=127.0.0.1";
         print json_encode(array("status"=>"401","msg"=>$msg )); 
     }
 
-    function print_results($result){
+    function print_results($result,$single){
         header('Content-Type: application/json');
-        $rows = array();
-        while($r = pg_fetch_assoc($result)) {
-            $rows[] = $r;
-        }
-        print json_encode(array_values(pg_fetch_all($result)));
+        if($single)
+            print json_encode((pg_fetch_assoc($result)));
+        else
+            print json_encode(array_values(pg_fetch_all($result)));
 
     }
 ?>

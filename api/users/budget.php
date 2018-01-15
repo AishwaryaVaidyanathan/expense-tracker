@@ -1,18 +1,34 @@
 <?php
 require '../connection.php';
-$sql= "
-UPDATE users 
-SET 
-budget=$_REQUEST[budget]  
-WHERE 
-u_id=$_SESSION[user_id]
-";
-if($result=runSQL($sql))
+if($_REQUEST['action']=="set")
 {
-    statusOK();
+        $sql= "
+    UPDATE users 
+    SET budget=$_REQUEST[budget]  
+    WHERE u_id=$_SESSION[user_id]
+    ";
+    if($result=runSQL($sql))
+    {
+        statusOK();
+    }
+    else
+    {
+        BadStatus("Budget not updated");
+    }
 }
-else
+
+if($_REQUEST['action']=="get")
 {
-    BadStatus("Budget not updated");
-} 
+    $sql= "
+    select budget from users 
+    WHERE u_id=$_SESSION[user_id]
+    ";
+        
+    if($result=runSQL($sql))
+    {
+        print_results($result,true);
+    }
+    
+
+}
 ?>

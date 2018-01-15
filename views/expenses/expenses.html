@@ -9,22 +9,22 @@
         </thead>
         <tbody>
             <tr ng-repeat="item in items">
-                <td>{{item.name}}</td>
+                <td>{{item.item}}</td>
                 <td>{{item.amount}}</td>
-                <td>{{item.date | date : format : timezone}}</td>
+                <td>{{item.ex_date | date : format : timezone}}</td>
                 <td>{{item.balance}}</td>
                 <td> <button ng-click="remove($index)"> Remove</button> </td>
             </tr>
         </tbody>
         <tfoot>
             <td>
-                <input type="text" ng-model="newItem.name" required>
+                <input type="text" ng-model="newItem.item" required>
             </td>
             <td>
                 <input type="number" ng-model="newItem.amount" required>
             </td>
             <td>
-                <input type="date" ng-model="newItem.date" required>
+                <input type="date" ng-model="newItem.ex_date" required>
             </td>
             <td></td>
             <td>
@@ -36,7 +36,10 @@
              <p>
                 Balance: {{budget- items[items.length-1].balance || budget }}
              </p>
-
+             <p>
+                Budget: {{budget}}
+                 </p>
+    
             </td>
         </tfoot>
     </table>

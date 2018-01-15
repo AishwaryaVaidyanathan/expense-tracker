@@ -1,12 +1,18 @@
 app.controller('expensesCtrl', function($scope, $http) {
     
-    $scope.newItem = {date:new Date}
+    $scope.newItem = {ex_date:new Date}
     var balance=0;
 
     $http
     .post('api/expenses/list.php')
     .then(function(res){
-        $scope.items=res.data;    
+        $scope.items=res.data;
+        $scope.items.forEach(d => {
+            balance += (d.amount-0);    
+            d.balance=balance;
+        });
+        
+            
     })
 
     $http
@@ -19,13 +25,13 @@ app.controller('expensesCtrl', function($scope, $http) {
         balance += $scope.newItem.amount;
         $scope.newItem.balance = balance;
         
-        $scope.newItem.fdate = $scope.newItem.date.toISOString();
+        $scope.newItem.fdate = $scope.newItem.ex_date.toISOString();
  
         $http
         .post('api/expenses/create.php',$scope.newItem)
         .then(function(){
             $scope.items.push($scope.newItem)        
-            $scope.newItem = {date:new Date}    
+            $scope.newItem = {ex_date:new Date}    
         })
        
     }

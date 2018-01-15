@@ -4,7 +4,7 @@
             <th>Reason</th>
             <th>Amount</th>
             <th>Date</th>
-            <th>Balance</th>
+            
             <th></th>
         </thead>
         <tbody>
@@ -12,8 +12,7 @@
                 <td>{{item.item}}</td>
                 <td>{{item.amount}}</td>
                 <td>{{item.ex_date | date : format : timezone}}</td>
-                <td>{{item.balance}}</td>
-                <td> <button ng-click="remove($index)"> Remove</button> </td>
+                <td> <a class="btn btn-default" ng-click="deleteItem($index,item)"> Remove</a> </td>
             </tr>
         </tbody>
         <tfoot>
@@ -31,10 +30,10 @@
                 <input type="submit" value="Add" class="btn btn-default"><br><br>
 
              <p>
-                Total Spent: {{items[items.length-1].balance || '0' }}
+                Total Spent: {{spent }}
              </p>   
              <p>
-                Balance: {{budget- items[items.length-1].balance || budget }}
+                Balance: {{budget- spent }}
              </p>
              <p>
                 Budget: {{budget}}

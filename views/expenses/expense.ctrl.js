@@ -1,30 +1,35 @@
 app.controller('expensesCtrl', function($scope, $http) {
     
     $scope.newItem = {ex_date:new Date}
-    var balance=0;
+
+   
 
     $http
     .post('api/expenses/list.php')
     .then(function(res){
         $scope.items=res.data;
-        $scope.items.forEach(d => {
-            balance += (d.amount-0);    
-            d.balance=balance;
-        });
-        
-            
+        totalSpent()       
     })
 
     $http
     .post('api/budget/get.php')
     .then(function(res){
-        $scope.budget=res.data.budget;    
+        $scope.budget=res.data.budget;
+        totalSpent()    
     })
 
+    $scope.deleteItem=function($index,item) {
+        $http
+        .post('api/expenses/delete.php',item)
+        .then(function(){
+            $scope.items.splice(0,$index);
+            totalSpent()
+        })
+    }
+
     $scope.addItem=function() {
-        balance += $scope.newItem.amount;
-        $scope.newItem.balance = balance;
         
+
         $scope.newItem.fdate = $scope.newItem.ex_date.toISOString();
  
         $http
@@ -32,7 +37,17 @@ app.controller('expensesCtrl', function($scope, $http) {
         .then(function(){
             $scope.items.push($scope.newItem)        
             $scope.newItem = {ex_date:new Date}    
+            totalSpent()
         })
        
     }
+
+    function totalSpent(){
+        var spent=0
+        $scope.items.forEach(function(d){
+            spent+=(d.amount-0)
+        })
+        $scope.spent=spent;
+    }
+
 });

@@ -34,9 +34,9 @@ $host        = "host=127.0.0.1";
     function print_results($result,$single){
         header('Content-Type: application/json');
         if($single)
-            print json_encode((pg_fetch_assoc($result)));
+            print json_encode(pg_fetch_assoc($result));
         else
-            print json_encode(array_values(pg_fetch_all($result)));
+            print json_encode(pg_fetch_all($result));
 
     }
 ?>

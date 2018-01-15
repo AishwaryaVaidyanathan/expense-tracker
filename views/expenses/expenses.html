@@ -13,7 +13,7 @@
                 <td>{{item.amount}}</td>
                 <td>{{item.date | date : format : timezone}}</td>
                 <td>{{item.balance}}</td>
-                <td> <button ng-click="remove($index)"> x</button> </td>
+                <td> <button ng-click="remove($index)"> Remove</button> </td>
             </tr>
         </tbody>
         <tfoot>
@@ -28,11 +28,11 @@
             </td>
             <td></td>
             <td>
-                <input type="submit" value="Add" class="btn btn-default">
+                <input type="submit" value="Add" class="btn btn-default"><br><br>
+
+             Balance: {{items[items.length-1].balance || '0' }}
             </td>
         </tfoot>
     </table>
-    <h4>
-        Balance: {{items[items.length-1].balance || '0' }}
-    </h4>
+       
 </form>

@@ -26,6 +26,7 @@ $host        = "host=127.0.0.1";
 
     function BadStatus($msg)
     {
+        http_response_code(401);
         header('Content-Type: application/json');
         print json_encode(array("status"=>"401","msg"=>$msg )); 
     }

@@ -3,11 +3,11 @@ require '../connection.php';
 $sql= "
 insert into expenses(item,amount,ex_date,u_id)
 values(
-    '$_REQUEST[item]',
-    '$_REQUEST[amount]',
-    '$_REQUEST[ex_date]',
-    '$_SESSION[user_id]');
-"; 
+    '$_REQUEST[name]',
+    $_REQUEST[amount],
+    '$_REQUEST[fdate]',
+    $_SESSION[user_id]);
+";
 if(runSQL($sql))
 {
     statusOK();

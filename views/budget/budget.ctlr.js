@@ -4,7 +4,7 @@ app.controller('budgetCtrl', function($scope,$http,$state) {
         
         
         $http
-        .post('api/users/budget.php',{budget:$scope.budget,action:'set'})
+        .post('api/budget/set.php',{budget:$scope.budget})
         .then(function(){
             $state.go('expenses')
         })

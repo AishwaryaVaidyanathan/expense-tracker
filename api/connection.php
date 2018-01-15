@@ -36,7 +36,12 @@ $host        = "host=127.0.0.1";
         if($single)
             print json_encode(pg_fetch_assoc($result));
         else
-            print json_encode(pg_fetch_all($result));
-
+        {
+            $rows=pg_fetch_all($result) ;
+            if($rows)
+                print json_encode($rows);
+            else
+                print "[]";
+        }
     }
 ?>

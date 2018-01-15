@@ -30,7 +30,13 @@
             <td>
                 <input type="submit" value="Add" class="btn btn-default"><br><br>
 
-             Balance: {{items[items.length-1].balance || '0' }}
+             <p>
+                Total Spent: {{items[items.length-1].balance || '0' }}
+             </p>   
+             <p>
+                Balance: {{budget- items[items.length-1].balance || budget }}
+             </p>
+
             </td>
         </tfoot>
     </table>

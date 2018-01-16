@@ -1,3 +1,7 @@
+<?php
+require '../connection.php';
+?>
+
 <!DOCTYPE html>
 <html class="no-js">
 

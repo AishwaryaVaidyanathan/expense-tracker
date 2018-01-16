@@ -1,0 +1,15 @@
+ <!-- Static navbar -->
+ <nav class="navbar navbar-default" ng-controller="headerCtrl">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">EXPENSE TRACKER</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right" ng-if="user.name">
+          <li class="active"><a>Hello {{user.name}}</a> </li>
+          <li><a ui-sref="budget">Set Budget</a></li>
+          <li><a href="logout.php">Logout</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+  </nav>

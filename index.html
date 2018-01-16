@@ -17,21 +17,22 @@
 
 <body ng-app="expenseTracker">
 
-    <div ng-include="'components/header.html'"></div>
+    <div ng-include="'components/header/header.html'"></div>
    
     <div class="container main-body">
         <ui-view></ui-view>
     </div>
-    <div ng-include="'components/footer.html'"></div>
+    <div ng-include="'components/footer/footer.html'"></div>
 
     <script src="lib/angular.min.js"></script>
     <script src="lib/angular-ui-router.min.js"></script>
     <script src="master.js"></script>
     <script src="routes.js"></script>
-    <script src="views/login/login.ctlr.js"></script>
-    <script src="views/signup/signup.ctlr.js"></script>
-    <script src="views/budget/budget.ctlr.js"></script>
+    <script src="views/login/login.ctrl.js"></script>
+    <script src="views/signup/signup.ctrl.js"></script>
+    <script src="views/budget/budget.ctrl.js"></script>
     <script src="views/expenses/expense.ctrl.js"></script>
+    <script src="components/header/header.ctrl.js"></script>
 
 
 </body>

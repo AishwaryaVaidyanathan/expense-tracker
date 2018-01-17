@@ -8,8 +8,5 @@ app.controller('budgetCtrl', function($scope,$http,$state) {
         .then(function(){
             $state.go('expenses')
         })
-
-
-
     }
 });

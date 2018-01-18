@@ -1,8 +1,6 @@
 <?php
-if(isset($_POST['logout'])) {
+require '../connection.php';
     session_unset();
     session_destroy();
     header("Location:index.php");
-    }
-
 ?>

@@ -4,7 +4,12 @@ app.controller('expensesCtrl', function($scope, $http) {
 
     $scope.checkExpense=function(item){
         if($scope.check_ex_date && item.ex_date) 
-        return new Date(item.ex_date).toDateString()==$scope.check_ex_date.toDateString()
+        {
+            var item_date=new Date(item.ex_date).toDateString();
+            var check_date=$scope.check_ex_date.toDateString();
+            return item_date==check_date
+        }
+        
         return true
     }
    

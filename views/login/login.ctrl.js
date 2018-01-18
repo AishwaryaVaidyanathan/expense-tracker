@@ -5,9 +5,10 @@ app.controller('loginCtrl', function($scope, $http, $state) {
         $http
         .post('api/users/login.php',$scope.user)
         .then(function(){
-            $state.go('expenses')
+            location.href='./expenses';
         })
         .catch(function(err){
+            console.log(err.data)
             $scope.err_msg=err.data.msg;
         })
 

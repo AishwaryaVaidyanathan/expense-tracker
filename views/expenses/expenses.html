@@ -1,14 +1,13 @@
-
 <form ng-submit="addItem()" ng-controller="expensesCtrl">
-        <div class="alert alert-danger" role="alert" ng-if="spent > budget" >
+    <div class="alert alert-danger" role="alert" ng-if="spent > budget">
         Amount spent cannot be more than your budget!!
-        </div>
+    </div>
     <table class="table well">
         <thead>
             <th>Reason</th>
             <th>Amount</th>
             <th>Date</th>
-            
+
             <th></th>
         </thead>
         <tbody>
@@ -16,7 +15,9 @@
                 <td>{{item.item}}</td>
                 <td>{{item.amount}}</td>
                 <td>{{item.ex_date | date : format : timezone}}</td>
-                <td> <a class="btn btn-default" ng-click="deleteItem($index,item)"> Remove</a> </td>
+                <td>
+                    <a class="btn btn-default" ng-click="deleteItem($index,item)">X</a>
+                </td>
             </tr>
         </tbody>
         <tfoot>
@@ -30,21 +31,26 @@
                 <input type="date" ng-model="newItem.ex_date" required>
             </td>
             <td>
-                <input type="submit" value="Add" class="btn btn-default">    
+                <input type="submit" value="Add" class="btn btn-default">
             </td>
         </tfoot>
     </table>
-    <p>
-            <input type="date" ng-model="check_ex_date" >
-    </p>
-    <p>
-            Total Spent: {{spent }}
-         </p>   
-         <p>
-            Balance: {{budget- spent }}
-         </p>
-         <p>
-            Budget: {{budget}}
-             </p>
-       
+    <div class="clearfix">
+    <div class="pull-right">
+        <label>Filter expense by date:</label><br>
+        <input type="date" ng-model="check_ex_date">
+    </div>
+    <div class="pull-left">
+        <p>
+           <label> Total Spent:</label> {{spent }}
+        </p>
+        <p>
+            <label>Balance:</label> {{budget- spent }}
+        </p>
+        <p>
+         <label>Budget:</label> {{budget}}
+        </p>
+    </div>
+    </div>
+
 </form>

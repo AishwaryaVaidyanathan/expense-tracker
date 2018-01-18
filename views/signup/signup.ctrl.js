@@ -12,7 +12,7 @@ app.controller('signupCtrl', function($scope, $http, $state) {
             $state.go('login')
         })
         .catch(function(err){
-            $scope.err_msg=err.data;
+            $scope.err_msg=err.data.msg;
         })
 
 

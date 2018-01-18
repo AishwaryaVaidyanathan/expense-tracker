@@ -10,6 +10,6 @@ require '../connection.php';
     }
     else
     {
-        BadStatus("Expenses have not been done");
+        BadStatus("No records inserted");
     }
 ?>

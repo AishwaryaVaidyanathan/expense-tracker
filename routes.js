@@ -21,6 +21,11 @@ app.config(function ($stateProvider,$urlRouterProvider) {
             url: '/budget',
             templateUrl: 'views/budget/budget.html'
         })
+        .state({
+            name: 'account',
+            url: '/account',
+            templateUrl: 'views/account/account.html'
+        })
 
         $urlRouterProvider.otherwise('/');
 

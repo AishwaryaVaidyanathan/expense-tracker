@@ -36,7 +36,9 @@ require 'api/connection.php';
     <script src="views/signup/signup.ctrl.js"></script>
     <script src="views/budget/budget.ctrl.js"></script>
     <script src="views/expenses/expense.ctrl.js"></script>
+    <script src="views/account/account.ctrl.js"></script>
     <script src="components/header/header.ctrl.js"></script>
+    
     <!--<script src="api/logout.php"></script>-->
 
 </body>

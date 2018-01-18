@@ -1,5 +1,6 @@
 <?php
-    session_unset();
+  require 'connection.php';
+  session_unset();
     session_destroy();
-    header("Location:index.php");
+    header("Location:/expense-tracker/");
 ?>

@@ -7,6 +7,7 @@ values
 ('$_REQUEST[name]','$_REQUEST[email]',md5('$_REQUEST[password]'));
 ";
 
+print $sql;
     if(runSQL($sql))
     {
         statusOK();

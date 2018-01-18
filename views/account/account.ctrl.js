@@ -1,6 +1,6 @@
-app.controller('', function($scope, $http, $state) {
+app.controller('accountCtrl', function($scope, $http, $state) {
     // $scope.user = {}
-    $scope.login = function(){
+    $scope.checkExpense = function(){
         $http
         .post('api/expenses/account.php')
         .then(function(res){

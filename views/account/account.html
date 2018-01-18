@@ -1,0 +1,29 @@
+
+<form class="well" ng-submit="checkExpense()" ng-controller="accountCtrl">
+<div>  
+        <table class="table well">
+                <thead>
+                    <th>Reason</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                    
+                    <th></th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in items">
+                        <td>{{item.item}}</td>
+                        <td>{{item.amount}}</td>
+                        <td>{{item.ex_date | date : format : timezone}}</td>
+                    </tr>
+                </tbody>
+       
+    <form class="well" ng-submit="checkExpense()">
+        <div class="form-group">
+        <input type="date" ng-model="newItem.ex_date" required>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-default">Check</button>
+        </div>
+    </form>
+</div>
+</form>>

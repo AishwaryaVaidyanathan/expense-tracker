@@ -2,6 +2,11 @@ app.controller('expensesCtrl', function($scope, $http) {
     
     $scope.newItem = {ex_date:new Date}
 
+    $scope.checkExpense=function(item){
+        if($scope.check_ex_date && item.ex_date) 
+        return new Date(item.ex_date).toDateString()==$scope.check_ex_date.toDateString()
+        return true
+    }
    
 
     $http

@@ -8,7 +8,7 @@ app.controller('loginCtrl', function($scope, $http, $state) {
             $state.go('expenses')
         })
         .catch(function(err){
-            $scope.err_msg=err.data;
+            $scope.err_msg=err.data.msg;
         })
 
 

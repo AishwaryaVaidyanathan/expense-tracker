@@ -12,7 +12,7 @@
             <th></th>
         </thead>
         <tbody>
-            <tr ng-repeat="item in items">
+            <tr ng-repeat="item in items | filter:checkExpense">
                 <td>{{item.item}}</td>
                 <td>{{item.amount}}</td>
                 <td>{{item.ex_date | date : format : timezone}}</td>
@@ -38,6 +38,9 @@
             </td>
         </tfoot>
     </table>
+    <p>
+            <input type="date" ng-model="check_ex_date" >
+    </p>
     <p>
             Total Spent: {{spent }}
          </p>   

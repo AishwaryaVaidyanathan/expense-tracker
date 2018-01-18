@@ -2,7 +2,7 @@
 require '../connection.php';
 
     $sql= "
-    select  ex_id,item,amount,ex_date from expenses 
+    select ex_id,item,amount,ex_date from expenses 
     WHERE u_id=$_SESSION[user_id]
     ";
         
@@ -10,4 +10,3 @@ require '../connection.php';
     {
         print_results($result,false);
     }
-?>

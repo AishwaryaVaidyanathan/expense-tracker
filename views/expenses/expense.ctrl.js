@@ -1,4 +1,4 @@
-app.controller('expensesCtrl', function($scope, $http,$state) {
+app.controller('expensesCtrl', function($scope, $http) {
     
     $scope.newItem = {ex_date:new Date}
 
@@ -46,7 +46,7 @@ app.controller('expensesCtrl', function($scope, $http,$state) {
 
     function totalSpent(){
         var spent=0
-        $scope.items.forEach(function(d){
+        if($scope.items.forEach)(function(d){
             spent+=(d.amount-0)
         })
         $scope.spent=spent;

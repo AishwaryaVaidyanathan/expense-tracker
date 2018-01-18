@@ -2,7 +2,7 @@ var app = angular.module('expenseTracker', ['ui.router']);
 
 
 app.config(function ($locationProvider) {
-    $locationProvider.html5Mode(false);
+    $locationProvider.html5Mode(true);
 });
 
 app.config(function ($httpProvider) {

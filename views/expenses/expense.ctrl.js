@@ -43,6 +43,7 @@ app.controller('expensesCtrl', function($scope, $http) {
        
     }
 
+
     function totalSpent(){
         var spent=0
         $scope.items.forEach(function(d){

@@ -5,7 +5,7 @@ app.controller('loginCtrl', function($scope, $http, $state) {
         $http
         .post('api/users/login.php',$scope.user)
         .then(function(){
-            $state.go('budget')
+            $state.go('expenses')
         })
         .catch(function(err){
             $scope.err_msg=err.data;

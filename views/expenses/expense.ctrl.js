@@ -1,4 +1,4 @@
-app.controller('expensesCtrl', function($scope, $http) {
+app.controller('expensesCtrl', function($scope, $http,$state) {
     
     $scope.newItem = {ex_date:new Date}
 

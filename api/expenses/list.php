@@ -10,3 +10,4 @@ require '../connection.php';
     {
         print_results($result,false);
     }
+?>
